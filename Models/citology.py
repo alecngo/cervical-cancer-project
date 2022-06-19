@@ -19,6 +19,8 @@ from sklearn.feature_selection import SelectFromModel
 from sklearn.model_selection import train_test_split
 
 def citology_model():
+    print('Citology')
+
 
     np.random.seed(0)
 

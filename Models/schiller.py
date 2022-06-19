@@ -19,6 +19,8 @@ from sklearn.feature_selection import SelectFromModel
 from sklearn.model_selection import train_test_split
 
 def schiller_model():
+    print('Schiller')
+
 
     np.random.seed(0)
 

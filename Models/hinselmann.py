@@ -19,6 +19,8 @@ from sklearn.feature_selection import SelectFromModel
 from sklearn.model_selection import train_test_split
 
 def hinselmann_model():
+    print('Hinselmann')
+
 
     np.random.seed(7)
 
