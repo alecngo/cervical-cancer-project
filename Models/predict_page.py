@@ -9,6 +9,12 @@ from citology import citology_model
 from biopsy import biopsy_model
 
 def user_input():
+
+    st.header('Cervical Cancer Detection Page')
+
+    st.subheader('Information collected from respondents is kept ***strictly confidential***.')
+    st.write('We do not collect and know about your information, nor your test result.')
+
     age = st.number_input('Enter your age')
     
     sexual_partner = st.slider('How many sexual partners have you had?', 0, 20)
@@ -17,7 +23,7 @@ def user_input():
 
     pregnancy = st.slider('How many times have you been pregnant?', 0, 10)
 
-    hmc = st.selectbox('Do you use Hormonal Contraceptive?', ['No', 'Yes'])
+    hmc = st.selectbox('Have you used Hormonal Contraceptive?', ['No', 'Yes'])
 
     if hmc == 'Yes':
         hmc = 1
