@@ -1,8 +1,12 @@
+from dis import code_info
 import streamlit as st
 import joblib
 import numpy as np
 import pandas as pd
-
+from hinselmann import hinselmann_model
+from schiller import schiller_model
+from citology import citology_model
+from biopsy import biopsy_model
 
 def user_input():
     age = st.number_input('Enter your age')
@@ -13,7 +17,7 @@ def user_input():
 
     pregnancy = st.slider('How many times have you been pregnant?', 0, 10)
 
-    hmc = st.selectbox('Do you use Hormonal Contraceptive?', ['Yes', 'No'])
+    hmc = st.selectbox('Do you use Hormonal Contraceptive?', ['No', 'Yes'])
 
     if hmc == 'Yes':
         hmc = 1
@@ -22,13 +26,13 @@ def user_input():
         hmc = 0
         hmc_year = 0
 
-    IUD = st.selectbox('Have you used IUD?', ['Yes', 'No'])
+    IUD = st.selectbox('Have you used IUD?', ['No', 'Yes'])
     if IUD == 'Yes':
         IUD = 1
     else:
         IUD = 0
 
-    cancer = st.selectbox('Have you had any type of cancer?', ['Yes', 'No'])
+    cancer = st.selectbox('Have you had any type of cancer?', ['No', 'Yes'])
     if cancer == 'Yes':
         cancer = 1
     else:
@@ -38,14 +42,21 @@ def user_input():
     hinselmann = np.array([age, sexual_partner, first_intercourse, pregnancy, hmc, hmc_year, IUD, cancer]).reshape(1, 8)
     schiller = np.array([age, sexual_partner, first_intercourse, pregnancy, hmc, hmc_year, IUD]).reshape(1, 7)
     citology = np.array([age, sexual_partner, first_intercourse, pregnancy, hmc, hmc_year]).reshape(1, 6)
-    biopsy = np.array([age, sexual_partner, first_intercourse, pregnancy, hmc, hmc_year, IUD, cancer]).reshape(1, 8)
+    biopsy = np.array([age, sexual_partner, first_intercourse, pregnancy, hmc, hmc_year, cancer]).reshape(1, 7)
 
     return {'hinselmann': hinselmann, 'schiller': schiller, 'citology': citology, 'biopsy': biopsy}
 
 def check_cancer(result):
+    count = 0
     for i in result:
         if i == 'Positive':
-            return 'Our test(s) predicts that you are at risk of having cervical cancer.'
+            count += 1
+    
+    if count == 1:
+        return '1/4 tests predicts that you are at risk of having cervical cancer.'
+    elif count > 1:
+        return f'{count}/4 tests predict that you are at risk of having cervical cancer.'
+
     return 'You are predictedly negative with cervical cancer. Please have regular check-ups.'
 
 def show_predict_page():
@@ -61,7 +72,7 @@ def show_predict_page():
 
     if st.button("Predict"):
         # hinselmann_test
-        model_hinselmann = joblib.load('Hinselmann_model')
+        model_hinselmann = hinselmann_model()
         prediction_hinselmann = model_hinselmann.predict(info['hinselmann'])
         if prediction_hinselmann == np.array([0]):
             prediction_hinselmann = 'Negative'
@@ -70,7 +81,7 @@ def show_predict_page():
         # st.subheader(f"Your Hinselmann test predicted result is: {prediction_hinselmann}")
 
         # schiller_test
-        model_schiller = joblib.load('Schiller_model')
+        model_schiller = schiller_model()
         prediction_schiller = model_schiller.predict(info['schiller'])
         if prediction_schiller == np.array([0]):
             prediction_schiller = 'Negative'
@@ -79,7 +90,7 @@ def show_predict_page():
         # st.subheader(f"Your Schiller test predicted result is: {prediction_hinselmann}")
 
         # citology_test
-        model_citology = joblib.load('Citology_model')
+        model_citology = citology_model()
         prediction_citology = model_citology.predict(info['citology'])
         if prediction_citology == np.array([0]):
             prediction_citology = 'Negative'
@@ -88,7 +99,7 @@ def show_predict_page():
         # st.subheader(f"Your Citology test predicted result is: {prediction_hinselmann}")
         
         # biopsy_test
-        model_biopsy = joblib.load('Biopsy_model')
+        model_biopsy = biopsy_model()
         prediction_biopsy = model_biopsy.predict(info['biopsy'])
         if prediction_biopsy == np.array([0]):
             prediction_biopsy = 'Negative'
