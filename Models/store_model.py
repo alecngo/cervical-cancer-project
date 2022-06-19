@@ -12,7 +12,6 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import GridSearchCV
-from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report, precision_score, f1_score, recall_score
 from sklearn.ensemble import ExtraTreesClassifier
 from sklearn.feature_selection import SelectFromModel
@@ -20,10 +19,10 @@ from sklearn.model_selection import train_test_split
 
 
 
-def pre_process(test):
+def pre_process(test, seed):
+    np.random.seed(seed)
     df = pd.read_csv("Clean Data_2.csv")
     df.drop('Unnamed: 0', inplace=True, axis=1)
-    np.random.seed(7)
     X = df.drop(['Hinselmann', 'Schiller', 'Citology', 'Biopsy'], axis=1).values
     y = df[test].values
     oversample = BorderlineSMOTE()
@@ -37,11 +36,30 @@ def pre_process(test):
 
 
 def hinselmann_model():
-    np.random.seed(7)
-    X_train, X_test, y_train, y_test = pre_process('Hinselmann')
+    X_train, X_test, y_train, y_test = pre_process('Hinselmann', 7)
     param_grid = {'C': [10], 'gamma': [1]}
     grid = GridSearchCV(SVC(), param_grid, verbose=3)
     grid.fit(X_train, y_train)
-    predictions = grid.predict(X_test)
-    return predictions
+    return grid
+
+def schiller_model():
+    X_train, X_test, y_train, y_test = pre_process('Schiller', 0)
+    rfc = RandomForestClassifier(n_estimators=200)
+    rfc.fit(X_train,y_train)    
+    return rfc
+
+def citology_model():
+    X_train, X_test, y_train, y_test = pre_process('Citology', 0)
+    param_grid = {'C': [10], 'gamma': [1]}
+    grid = GridSearchCV(SVC(), param_grid, verbose=3)
+    grid.fit(X_train, y_train)
+    return grid
+
+def biopsy_model():
+    X_train, X_test, y_train, y_test = pre_process('Biopsy', 2)
+    rfc = RandomForestClassifier(n_estimators=200)
+    rfc.fit(X_train,y_train)    
+    return rfc
+
+
 
