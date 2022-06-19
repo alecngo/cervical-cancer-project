@@ -42,7 +42,7 @@ def user_input():
     hinselmann = np.array([age, sexual_partner, first_intercourse, pregnancy, hmc, hmc_year, IUD, cancer]).reshape(1, 8)
     schiller = np.array([age, sexual_partner, first_intercourse, pregnancy, hmc, hmc_year, IUD]).reshape(1, 7)
     citology = np.array([age, sexual_partner, first_intercourse, pregnancy, hmc, hmc_year]).reshape(1, 6)
-    biopsy = np.array([age, sexual_partner, first_intercourse, pregnancy, hmc, hmc_year, cancer]).reshape(1, 7)
+    biopsy = np.array([age, sexual_partner, first_intercourse, pregnancy, hmc, hmc_year, IUD, cancer]).reshape(1, 8)
 
     return {'hinselmann': hinselmann, 'schiller': schiller, 'citology': citology, 'biopsy': biopsy}
 
