@@ -46,7 +46,7 @@ def check_cancer(result):
     for i in result:
         if i == 'Positive':
             return 'Our test(s) predicts that you are at risk of having cervical cancer.'
-    return 'You are negative with cervical cancer. Please have regular check-ups.'
+    return 'You are predictedly negative with cervical cancer. Please have regular check-ups.'
 
 def show_predict_page():
 
