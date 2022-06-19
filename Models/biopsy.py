@@ -19,6 +19,7 @@ from sklearn.feature_selection import SelectFromModel
 from sklearn.model_selection import train_test_split
 
 def biopsy_model():
+    print('Biopsy')
 
     np.random.seed(2)
 
