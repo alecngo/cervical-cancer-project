@@ -55,14 +55,14 @@ def show_explore_page():
 
     st.markdown("""There are several factor that may increase your chance of having cervical cancer. Each test mentioned above weights each factor differently. However, they all come to consensus with 8 most important risk factors, which are asked in the predict page:""")
     
-    st.markdown('   *  1. Age')
-    st.markdown('   *  2. Number of sexual partners')
-    st.markdown('   *  3. First sexual intercourse') 
-    st.markdown('   *  4. Number of pregnancies')    
-    st.markdown('   *  5. Use of hormonal contraceptives')    
-    st.markdown('   *  6. Duration of hormonal contraceptives usage')    
-    st.markdown('   *  7. Use of IUD')    
-    st.markdown('   *  8. Presense of other types of cancer')    
+    st.markdown('        1. Age')
+    st.markdown('        2. Number of sexual partners')
+    st.markdown('        3. First sexual intercourse') 
+    st.markdown('        4. Number of pregnancies')    
+    st.markdown('        5. Use of hormonal contraceptives')    
+    st.markdown('        6. Duration of hormonal contraceptives usage')    
+    st.markdown('        7. Use of IUD')    
+    st.markdown('        8. Presense of other types of cancer')    
 
     st.markdown('')
     # st.image("Feature Importances - Hinselmann.png", caption='Feature Importances - Hinselmann Test')
