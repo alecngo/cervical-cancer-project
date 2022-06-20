@@ -13,7 +13,7 @@ def user_input():
     st.header('Cervical Cancer Detection Page')
 
     st.subheader('Information collected from respondents is kept ***strictly confidential***.')
-    st.write('We do not collect and know about your information, nor your test result.')
+    st.write('We do not collect your information, nor your test result.')
 
     age = st.number_input('Enter your age')
     
