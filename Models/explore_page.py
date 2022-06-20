@@ -14,7 +14,7 @@ def show_explore_page():
     with st.container():
         image_col, text_col = st.columns((1,1))
         with image_col:
-            st.image("Cervical-cancer-simple-illustration.jpg")
+            st.image("https://www.quellerfisher.com/blog/wp-content/uploads/sites/464/2018/02/Cervical-cancer-simple-illustration.jpg")
             st.markdown("""
             [Fig. 1.](https://www.quellerfisher.com/blog/wp-content/uploads/sites/464/2018/02/Cervical-cancer-simple-illustration.jpg) Cervical Cancer illustration""")
 
