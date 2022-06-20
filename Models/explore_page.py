@@ -46,7 +46,7 @@ def show_explore_page():
 | Hinselmann | Grid Search CV + Borderline-SMOTE + SelectFromModel |        8       |  98.18%  |   98.76%  |    97.55%   |    98.80%   | 98.15% |
 |  Schiller  |  Random Forest + Borderline-SMOTE + SelectFromModel |        7       |  96.17%  |   96.58%  |    95.27%   |    96.97%   | 95.92% |
 |  Citology  | Grid Search CV + Borderline-SMOTE + SelectFromModel |        6       |  97.54%  |   97.65%  |    97.65%   |    97.42%   | 96.74% |
-|   Biopsy   |  Random Forest + Borderline-SMOTE + SelectFromModel |        7       |  96.57%  |  100.00%  |    93.13%   |   100.00%   | 96.44% |
+|   Biopsy   |  Random Forest + Borderline-SMOTE + SelectFromModel |        8       |  96.57%  |  100.00%  |    93.13%   |   100.00%   | 96.44% |
     
     """)
 
@@ -76,16 +76,16 @@ def show_explore_page():
     with st.container():
         image1, image2 = st.columns((1,1))
         with image1:
-            st.image("Feature Importances - Hinselmann.png", caption='Fig. 2. Feature Importances - Hinselmann Test')
+            st.image("https://scontent-ort2-1.xx.fbcdn.net/v/t39.30808-6/289427117_1157939874938728_5142108399346703256_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=730e14&_nc_ohc=XcRilQctbN8AX_8c58A&tn=pP2okOx80sPGDgTM&_nc_ht=scontent-ort2-1.xx&oh=00_AT_-jxKAWqIVylOhUSZiIEdygvWZr9WVFpttJXP9imnPyQ&oe=62B4BB5B", caption='Fig. 2. Feature Importances - Hinselmann Test')
         with image2:
-            st.image("Feature Importances - Schiller.png", caption='Fig. 3. Feature Importances - Schiller Test')
+            st.image("https://scontent-ort2-1.xx.fbcdn.net/v/t39.30808-6/289285787_1157939858272063_2451351868148193044_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=730e14&_nc_ohc=jKlWEfvhlosAX8AaPPm&_nc_ht=scontent-ort2-1.xx&oh=00_AT8Hg843oVK2muBqyc66YBuiGXaRlDk3ntkOWegXvp_mWQ&oe=62B5AA43", caption='Fig. 3. Feature Importances - Schiller Test')
 
     with st.container():
         image1, image2 = st.columns((1,1))
         with image1:
-            st.image("Feature Importances - Citology.png", caption='Fig. 4. Feature Importances - Citology Test')
+            st.image("https://scontent-ort2-1.xx.fbcdn.net/v/t39.30808-6/289344790_1157939864938729_5397285092162796601_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=730e14&_nc_ohc=SilmKlWKiusAX8Qymyz&tn=pP2okOx80sPGDgTM&_nc_ht=scontent-ort2-1.xx&oh=00_AT-cUO_Ktj6sKFse8a2JGsovoPfXtdGu-86K8znjk_MBFw&oe=62B56702", caption='Fig. 4. Feature Importances - Citology Test')
         with image2:
-            st.image("Feature Importances - Biopsy.png", caption='Fig. 5. Feature Importances - Biopsy Test')
+            st.image("https://scontent-ort2-1.xx.fbcdn.net/v/t39.30808-6/289295916_1157939861605396_8182708816788922842_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=730e14&_nc_ohc=Gefp71s1K8gAX8FrAww&tn=pP2okOx80sPGDgTM&_nc_ht=scontent-ort2-1.xx&oh=00_AT_qsToD-peR_9U_uUHCZ3Ww0BUA_p9pBMuCPAks9EQ_WQ&oe=62B3ED34", caption='Fig. 5. Feature Importances - Biopsy Test')
 
     
     
