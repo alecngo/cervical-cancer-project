@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 
 def show_explore_page():
-    st.markdown("## What is Cervical Cancel?")
+    st.markdown("## What is Cervical Cancer?")
     st.markdown("""
     ### Cervical cancer is the fourth most common cancer in women compared to other types of cancer. However, you can protect yourself by early detecting this disease.""")
 
