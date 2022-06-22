@@ -15,11 +15,11 @@ def user_input():
     st.subheader('Information collected from respondents is kept ***strictly confidential***.')
     st.write('We do not collect your information, nor your test result.')
 
-    age = st.number_input('Enter your age')
+    age = st.number_input('Enter your age', min_value=0, max_value=100)
     
     sexual_partner = st.slider('How many sexual partners have you had?', 0, 20)
 
-    first_intercourse = st.number_input('When was your first sexual intercourse (age)?')
+    first_intercourse = st.number_input('When was your first sexual intercourse (age)? (If N/A, put 0)', min_value=0, max_value=100)
 
     pregnancy = st.slider('How many times have you been pregnant?', 0, 10)
 
@@ -38,7 +38,7 @@ def user_input():
     else:
         IUD = 0
 
-    cancer = st.selectbox('Have you had any type of cancer?', ['No', 'Yes'])
+    cancer = st.selectbox('Have you had any types of cancer?', ['No', 'Yes'])
     if cancer == 'Yes':
         cancer = 1
     else:
