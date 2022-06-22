@@ -11,7 +11,7 @@ from biopsy import biopsy_model
 texts = {   'header': {         'en':'Cervical Cancer Detection Page',
                                 'vn':'Trang Chuẩn Đoán Ung Thư Cổ Tử Cung'},
             'subheader': {      'en':'Information collected from respondents is kept ***strictly confidential***.',
-                                'vn':'Thông tin thu thập từ người dùng được giữ ***bí mật tuyệt đối***.'},
+                                'vn':'Thông tin thu thập từ người dùng được ***bảo mật tuyệt đối***.'},
             'subheader1': {     'en':'We do not collect your information, nor your test result.',
                                 'vn':'Chúng tôi không thu thập thông tin từ người dùng, kể cả kết quả dự đoán từ website.'},
             'age': {            'en': 'Enter your age',
@@ -54,38 +54,38 @@ texts = {   'header': {         'en':'Cervical Cancer Detection Page',
                        
 
 
-def user_input():
+def user_input(lan):
 
-    st.header('Cervical Cancer Detection Page')
+    st.header(texts['header'][lan])
 
-    st.subheader('Information collected from respondents is kept ***strictly confidential***.')
-    st.write('We do not collect your information, nor your test result.')
+    st.subheader(texts['subheader'][lan])
+    st.write(texts['subheader1'][lan])
 
-    age = st.number_input('Enter your age', min_value=0, max_value=100)
+    age = st.number_input(texts['age'][lan], min_value=0, max_value=100)
     
-    sexual_partner = st.slider('How many sexual partners have you had?', 0, 20)
+    sexual_partner = st.slider(texts['sexual_partner'][lan], 0, 20)
 
-    first_intercourse = st.number_input('When was your first sexual intercourse (age)? (If N/A, put 0)', min_value=0, max_value=100)
+    first_intercourse = st.number_input(texts['intercourse'][lan], min_value=0, max_value=100)
 
-    pregnancy = st.slider('How many times have you been pregnant?', 0, 10)
+    pregnancy = st.slider(texts['pregnancy'][lan], 0, 10)
 
-    hmc = st.selectbox('Have you used Hormonal Contraceptive?', ['No', 'Yes'])
+    hmc = st.selectbox(texts['hmc'][lan], [texts['no'][lan], texts['yes'][lan]])
 
-    if hmc == 'Yes':
+    if hmc == texts['yes'][lan]:
         hmc = 1
-        hmc_year = st.number_input('If yes, how long have you used hormonal contraceptive (year)?')
+        hmc_year = st.number_input(texts['hmc_year'][lan])
     else:
         hmc = 0
         hmc_year = 0
 
-    IUD = st.selectbox('Have you used IUD?', ['No', 'Yes'])
-    if IUD == 'Yes':
+    IUD = st.selectbox(texts['IUD'][lan], [texts['no'][lan], texts['yes'][lan]])
+    if IUD == texts['yes'][lan]:
         IUD = 1
     else:
         IUD = 0
 
-    cancer = st.selectbox('Have you had any types of cancer?', ['No', 'Yes'])
-    if cancer == 'Yes':
+    cancer = st.selectbox(texts['cancer'][lan], [texts['no'][lan], texts['yes'][lan]])
+    if cancer == texts['yes'][lan]:
         cancer = 1
     else:
         cancer = 0
@@ -98,65 +98,66 @@ def user_input():
 
     return {'hinselmann': hinselmann, 'schiller': schiller, 'citology': citology, 'biopsy': biopsy}
 
-def check_cancer(result):
+def check_cancer(lan, result):
     count = 0
     for i in result:
-        if i == 'Positive':
+        if i == texts['positive'][lan]:
             count += 1
     
     if count == 1:
-        return '1/4 tests predicts that you are at risk of having cervical cancer.'
+        return texts['1_4_test'][lan]
     elif count > 1:
-        return f'{count}/4 tests predict that you are at risk of having cervical cancer.'
+        return f'{count}{texts["morethan4"][lan]}'
 
-    return 'You are predictedly negative with cervical cancer. Please have regular check-ups.'
+    return texts['0_test'][lan]
 
-def show_predict_page(language):
+def show_predict_page(lan):
 
-    st.sidebar.title("Cervical Cancer Detection")
+    st.sidebar.title(texts['side_header'][lan])
 
-    st.sidebar.write("""### We need some information to predict your cervical health status""")
+    st.sidebar.write(texts['side_subhead'][lan])
 
-    info = user_input()
+    info = user_input(lan)
+
     st.write(pd.DataFrame(info['hinselmann'],columns=['Age','Number of sexual partners',
        'First sexual intercourse', 'Num of pregnancies','Hormonal Contraceptives',
        'Hormonal Contraceptives (years)', 'IUD','Dx:Cancer']))
 
-    if st.button("Predict"):
+    if st.button(texts['predict'][lan]):
         # hinselmann_test
         model_hinselmann = hinselmann_model()
         prediction_hinselmann = model_hinselmann.predict(info['hinselmann'])
         if prediction_hinselmann == np.array([0]):
-            prediction_hinselmann = 'Negative'
+            prediction_hinselmann = texts['negative'][lan]
         else: 
-            prediction_hinselmann = 'Positive'
+            prediction_hinselmann = texts['positive'][lan]
         # st.subheader(f"Your Hinselmann test predicted result is: {prediction_hinselmann}")
 
         # schiller_test
         model_schiller = schiller_model()
         prediction_schiller = model_schiller.predict(info['schiller'])
         if prediction_schiller == np.array([0]):
-            prediction_schiller = 'Negative'
+            prediction_schiller = texts['negative'][lan]
         else: 
-            prediction_schiller = 'Positive'
+            prediction_schiller = texts['positive'][lan]
         # st.subheader(f"Your Schiller test predicted result is: {prediction_hinselmann}")
 
         # citology_test
         model_citology = citology_model()
         prediction_citology = model_citology.predict(info['citology'])
         if prediction_citology == np.array([0]):
-            prediction_citology = 'Negative'
+            prediction_citology = texts['negative'][lan]
         else: 
-            prediction_citology = 'Positive'
+            prediction_citology = texts['positive'][lan]
         # st.subheader(f"Your Citology test predicted result is: {prediction_hinselmann}")
         
         # biopsy_test
         model_biopsy = biopsy_model()
         prediction_biopsy = model_biopsy.predict(info['biopsy'])
         if prediction_biopsy == np.array([0]):
-            prediction_biopsy = 'Negative'
+            prediction_biopsy = texts['negative'][lan]
         else: 
-            prediction_biopsy = 'Positive'
+            prediction_biopsy = texts['positive'][lan]
         # st.subheader(f"Your Biopsy test predicted result is: {prediction_hinselmann}")
 
 
@@ -167,7 +168,7 @@ def show_predict_page(language):
         
         st.table(result)
 
-        st.header(check_cancer(result_collection))
+        st.header(check_cancer(lan, result_collection))
 
 if __name__ == "__main__":
     show_predict_page()
