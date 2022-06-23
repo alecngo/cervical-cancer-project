@@ -27,7 +27,7 @@ if lan == 'Tiếng Việt':
 else:
     lan = 'en'
 
-def main(lan):
+def main(language):
 
     page = st.sidebar.selectbox(texts['select'][lan], (texts['predict'][lan], texts['explore'][lan]))
     st.sidebar.write(texts['concern'][lan])
@@ -37,3 +37,4 @@ def main(lan):
     else:
         show_explore_page(lan)
 
+main(lan)
