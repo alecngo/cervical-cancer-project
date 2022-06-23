@@ -22,7 +22,7 @@ texts = {   'header1': {
             About 90% of the new cases and deaths worldwide in 2020 occurred in low- and middle-income countries.""",
                 'vn': """Ung thư cổ tử cung là một loại ung thư khi các tế bào bất thường phát triển ở khu vực cổ tử cung, bộ phận bên dưới tử cung.
             Cổ tử cung kết nối tử cung và âm đạo. Hình vẽ mô tả cổ tử cung có tế bào phát triển bất thường phát triển thành khối u. 
-            Ung thư cổ tử cung là loại ung thư phổ biến thứ tư ở phụ nữ so với các loại ung thư khác, ước tính có khoảng 604,000 nghìn ca mắc mới và 342,000 ca tử vong vào năm 2020.
+            Ung thư cổ tử cung là loại ung thư phổ biến thứ tư ở phụ nữ so với các loại ung thư khác, ước tính có khoảng 604,000 ca mắc mới và 342,000 ca tử vong vào năm 2020.
             Khoảng 90% các trường hợp mắc mới và tử vong trên toàn thế giới vào năm 2020 xảy ra ở các nước có thu nhập thấp và trung bình."""
             },
             'readmore': {
