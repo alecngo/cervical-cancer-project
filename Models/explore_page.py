@@ -69,7 +69,8 @@ texts = {   'header1': {
             },
             'factor': {
                 'en': 
-                """         1. Age
+                """         
+                            1. Age
 
                             2. Number of sexual partners
 
@@ -85,7 +86,8 @@ texts = {   'header1': {
 
                             8. Presense of other types of cancer""",
                 'vn': 
-                """         1. Độ tuổi
+                """         
+                            1. Độ tuổi
 
                             2. Số người quan hệ tình dục 
 
