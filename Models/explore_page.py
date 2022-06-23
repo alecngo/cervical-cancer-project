@@ -22,7 +22,7 @@ texts = {   'header1': {
             About 90% of the new cases and deaths worldwide in 2020 occurred in low- and middle-income countries.""",
                 'vn': """Ung thư cổ tử cung là một loại ung thư khi các tế bào bất thường phát triển ở khu vực cổ tử cung, bộ phận bên dưới tử cung.
             Cổ tử cung kết nối tử cung và âm đạo. Hình vẽ mô tả cổ tử cung có tế bào phát triển bất thường phát triển thành khối u. 
-            Ung thư cổ tử cung là loại ung thư phổ biến thứ tư ở phụ nữ so với các loại ung thư khác, ước tính có khoảng 604,000 nghìn ca mắc mới và 342,000 ca tử vong vào năm 2020.
+            Ung thư cổ tử cung là loại ung thư phổ biến thứ tư ở phụ nữ so với các loại ung thư khác, ước tính có khoảng 604,000 ca mắc mới và 342,000 ca tử vong vào năm 2020.
             Khoảng 90% các trường hợp mắc mới và tử vong trên toàn thế giới vào năm 2020 xảy ra ở các nước có thu nhập thấp và trung bình."""
             },
             'readmore': {
@@ -45,7 +45,7 @@ texts = {   'header1': {
             shows the most outstanding performance, with 8 chosen features, generating an accuracy of 98.18%.""",
                 'vn': """
             Phát hiện sớm bệnh ung thư cổ tử cung có thể giúp gia tăng cơ hội chữa lành. Một số phương pháp dự đoán đã được xây dựng dựa trên giữ liệu thu thập được từ 858 phụ nữ từ [UCI Machine Learning Repository](https://archive-beta.ics.uci.edu/ml/datasets/cervical+cancer+risk+factors)
-            với 32 đặc điểm khác nhau và 4 kết quả xét nghiệm cần dự đoán, cũng là 4 phương pháp xét nghiệm cung thư cổ tử cung phổ biến nhất: Hinselmann, Schiller, Cytology, và Biopsy.
+            với 32 đặc điểm khác nhau và 4 kết quả xét nghiệm cần dự đoán, cũng là 4 phương pháp xét nghiệm ung thư cổ tử cung phổ biến nhất: Hinselmann, Schiller, Cytology, và Biopsy.
 
             Dữ liệu thu được có sự mất cân bằng với chỉ 9% số bệnh nhân dương tính và khoảng 20% dữ liệu thiếu thông tin.
             Bên cạnh đó, chúng ta không cần dùng toàn bộ 32 đặc tính để xây dựng mô hình dự đoán vì có thể dẫn tới việc kết quả trở nên thiếu chính xác. Vì vậy, một vài cách tiếp cận sử dụng trí tuệ nhân tạo đã được sử dụng để giải quyết những vấn đề nếu trên,
@@ -70,21 +70,35 @@ texts = {   'header1': {
             'factor': {
                 'en': 
                 """         1. Age
+
                             2. Number of sexual partners
+
                             3. First sexual intercourse
+
                             4. Number of pregnancies
+
                             5. Use of hormonal contraceptives  
-                            6. Duration of hormonal contraceptives usage   
+
+                            6. Duration of hormonal contraceptives usage
+
                             7. Use of IUD    
+
                             8. Presense of other types of cancer""",
                 'vn': 
                 """         1. Độ tuổi
+
                             2. Số người quan hệ tình dục 
+
                             3. Tuổi khi lần đầu quan hệ tình dục
+
                             4. Số lần mang thai
+
                             5. Sử dụng thuốc tránh thai nội tiết tố 
+
                             6. Thời gian sử dụng thuốc tránh thai nội tiết tố
+
                             7. Sử dụng vòng tránh thai   
+                            
                             8. Các bệnh ung thư nền khác"""
             }
 
