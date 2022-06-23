@@ -4,7 +4,7 @@ from explore_page import show_explore_page
 
 texts = {   'select': {        
                 'en': "Explore or Predict",
-                'vn': "Khám phá hay dự đoán"
+                'vn': "Khám phá hay chẩn đoán"
             },
             'concern': {
                 'en': 'For any concerns or inquiries, contact developer at ngoa@berea.edu',
@@ -12,7 +12,7 @@ texts = {   'select': {
             },
             'predict': {
                 'en': 'Predict',
-                'vn': 'Dự đoán'
+                'vn': 'Chẩn đoán'
             },
             'explore': {
                 'en': 'Explore',
