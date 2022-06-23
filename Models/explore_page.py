@@ -30,8 +30,8 @@ texts = {   'header1': {
                 'vn': 'Xem thêm...'
             },
             'method_head': {
-                'en': 'How does this model work?',
-                'vn': 'Kết quả được tính toán như thế nào?'
+                'en': '## How does this model work?',
+                'vn': '## Kết quả được tính toán như thế nào?'
             },
             'method': {
                 'en': """
