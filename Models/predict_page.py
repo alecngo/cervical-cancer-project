@@ -8,49 +8,90 @@ from citology import citology_model
 from biopsy import biopsy_model
 
 
-texts = {   'header': {         'en':'Cervical Cancer Detection Page',
-                                'vn':'Trang Chuẩn Đoán Ung Thư Cổ Tử Cung'},
-            'subheader': {      'en':'Information collected from respondents is kept ***strictly confidential***.',
-                                'vn':'Thông tin thu thập từ người dùng được ***bảo mật tuyệt đối***.'},
-            'subheader1': {     'en':'We do not collect your information, nor your test result.',
-                                'vn':'Chúng tôi không thu thập thông tin từ người dùng, kể cả kết quả dự đoán từ website.'},
-            'age': {            'en': 'Enter your age',
-                                'vn': 'Nhập tuổi của bạn'},
-            'sexual_partner': { 'en': 'How many sexual partners have you had?',
-                                'vn': 'Bạn đã và đang quan hệ tình dục với bao nhiêu người?'},
-            'intercourse': {    'en': 'When was your first sexual intercourse (age)? (If N/A, put 0)',
-                                'vn': 'Bạn quan hệ tình dục lần đầu tiên vào năm bao nhiêu tuổi? (Điền 0 nếu không có thông tin)'},
-            'pregnancy': {      'en': 'How many times have you been pregnant?',
-                                'vn': 'Bạn đã, và đang mang thai bao nhiêu lần?'},
-            'hmc':  {           'en': 'Have you used Hormonal Contraceptive?',
-                                'vn': 'Bạn có đang sử dụng thuốc tránh thai nội tiết tố không?'},
-            'hmc_year': {       'en': 'If yes, how long have you used hormonal contraceptive (year)?',
-                                'vn': 'Nếu có, bạn đã sử dụng thuốc tránh thai nổi tiết tố bao lâu (năm)?'},
-            'IUD':  {           'en': 'Have you used IUD?',
-                                'vn': 'Bạn có đã, hoặc đang sử dụng vòng tránh thai không?'},
-            'cancer': {         'en': 'Have you had any types of cancer?',
-                                'vn': 'Bạn đã, hoặc đang mắc các bệnh ung thư nào không?'},
-            'yes':  {           'en': 'Yes',
-                                'vn': 'Có'},
-            'no':  {            'en': 'No',
-                                'vn': 'Không'},                                
-            'side_header': {    'en': 'Cervical Cancer Detection',
-                                'vn': 'Chẩn Đoán Ung Thư Cổ Tử Cung'},
-            'side_subhead': {   'en': '### We need some information to predict your cervical health status',
-                                'vn': '### Chúng tôi cần một vài thông tin để dự đoán tính trạng sức khỏe cổ tử cung của bạn'},
-            'predict':  {       'en': 'Predict',
-                                'vn': 'Dự đoán'},
-            'negative': {       'en': 'Negative',
-                                'vn': 'Âm tính'},
-            'positive': {       'en': 'Positive',
-                                'vn': 'Dương tính'},
-            '1_4_test': {       'en': '1/4 tests predicts that you are at risk of having cervical cancer.',
-                                'vn': '1/4 bài test dự đoán bạn đang có nguy cơ mắc ung thư cổ tử cung.'},
-            'morethan4': {      'en': '/4 tests predict that you are at risk of having cervical cancer.',
-                                'vn': '/4 bài test dự đoán bạn đang có nguy cơ mắc ung thư cổ tử cung.'},
-            '0_test':   {       'en': 'You are predictedly negative with cervical cancer. Please have regular check-ups.',
-                                'vn': 'Bạn được dự đoán âm tính với ung thư cổ tử cung. Vui lòng kiểm tra sức khỏe định kỳ.'}       
-                       }
+texts = {   'header': {         
+                'en':'Cervical Cancer Detection Page',
+                'vn':'Trang Chẩn Đoán Ung Thư Cổ Tử Cung'
+            },
+            'subheader': {      
+                'en':'Information collected from respondents is kept ***strictly confidential***.',
+                'vn':'Thông tin thu thập từ người dùng được ***bảo mật tuyệt đối***.'
+            },
+            'subheader1': {     
+                'en':'We do not collect your information, nor your test result.',
+                'vn':'Chúng tôi không thu thập thông tin từ người dùng, kể cả kết quả dự đoán từ website.'
+            },
+            'age': {            
+                'en': 'Enter your age',
+                'vn': 'Nhập tuổi của bạn'
+            },
+            'sexual_partner': { 
+                'en': 'How many sexual partners have you had?',
+                'vn': 'Bạn đã và đang quan hệ tình dục với bao nhiêu người?'
+            },
+            'intercourse': {    
+                'en': 'When was your first sexual intercourse (age)? (If N/A, put 0)',
+                'vn': 'Bạn quan hệ tình dục lần đầu tiên vào năm bao nhiêu tuổi? (Điền 0 nếu không có thông tin)'
+            },
+            'pregnancy': {      
+                'en': 'How many times have you been pregnant?',
+                'vn': 'Bạn đã, và đang mang thai bao nhiêu lần?'
+            },
+            'hmc':  {           
+                'en': 'Have you used Hormonal Contraceptive?',
+                'vn': 'Bạn có đang sử dụng thuốc tránh thai nội tiết tố không?'
+            },
+            'hmc_year': {       
+                'en': 'If yes, how long have you used hormonal contraceptive (year)?',
+                'vn': 'Nếu có, bạn đã sử dụng thuốc tránh thai nổi tiết tố bao lâu (năm)?'
+            },
+            'IUD':  {           
+                'en': 'Have you used IUD?',
+                'vn': 'Bạn có đã, hoặc đang sử dụng vòng tránh thai không?'
+            },
+            'cancer': {         
+                'en': 'Have you had any types of cancer?',
+                'vn': 'Bạn đã, hoặc đang mắc các bệnh ung thư nào không?'
+            },
+            'yes':  {           
+                'en': 'Yes',
+                'vn': 'Có'},
+            'no':  {            
+                'en': 'No',
+                'vn': 'Không'
+            },                                
+            'side_header': {    
+                'en': 'Cervical Cancer Detection',
+                'vn': 'Chẩn Đoán Ung Thư Cổ Tử Cung'
+            },
+            'side_subhead': {   
+                'en': '### We need some information to predict your cervical health status',
+                'vn': '### Chúng tôi cần một vài thông tin để dự đoán tình trạng sức khỏe cổ tử cung của bạn'
+            },
+            'predict':  {       
+                'en': 'Predict',
+                'vn': 'Dự đoán'
+            },
+            'negative': {       
+                'en': 'Negative',
+                'vn': 'Âm tính'
+            },
+            'positive': {       
+                'en': 'Positive',
+                'vn': 'Dương tính'
+            },
+            '1_4_test': {       
+                'en': '1/4 tests predicts that you are at risk of having cervical cancer.',
+                'vn': '1/4 bài test dự đoán bạn đang có nguy cơ mắc ung thư cổ tử cung.'
+            },
+            'morethan4': {      
+                'en': '/4 tests predict that you are at risk of having cervical cancer.',
+                'vn': '/4 bài test dự đoán bạn đang có nguy cơ mắc ung thư cổ tử cung.'
+            },
+            '0_test':   {       
+                'en': 'You are predictedly negative with cervical cancer. Please have regular check-ups.',
+                'vn': 'Bạn được dự đoán âm tính với ung thư cổ tử cung. Vui lòng kiểm tra sức khỏe định kỳ.'
+            }       
+        }
                        
 
 

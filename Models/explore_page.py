@@ -3,8 +3,87 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
+texts = {   'header1': {        
+                'en': '## What is Cervical Cancer?',
+                'vn': '## Ung Thư Cổ Tử Cung Là Gì?'
+            },
+            'definition_head': {     
+                'en': '### Cervical cancer is the fourth most common cancer in women compared to other types of cancer. However, you can protect yourself by early detecting this disease.',
+                'vn': '### Ung thư cổ tử cung là một trong bốn loại ung thư phổ biến nhất ở phụ nữ so với các loại ung thư khác. Tuy nhiên, bạn hoàn toàn có thể bảo vệ bản thân mình bằng cách phát hiện sớm căn bệnh này.'
+            },
+            'sub2header1': {    
+                'en': 'Overview of Cervical Cancer',
+                'vn': 'Tổng quát về bệnh ung thư cổ tử cung'
+            },
+            'definition': {
+                'en': """Cervical cancer is a type of cancer in which abnormal cell growth occurs in the cervix, the lower part of the uterus. 
+            The cervix connects the uterus to the vagina. The figure depicts a cervix with abnormal cell growth developing into a tumor
+            Cervical cancer is the fourth most common cancer in women compared to other types of cancer, with an estimated 604 000 new cases and 342 000 deaths in 2020. 
+            About 90% of the new cases and deaths worldwide in 2020 occurred in low- and middle-income countries.""",
+                'vn': """Ung thư cổ tử cung là một loại ung thư khi các tế bào bất thường phát triển ở khu vực cổ tử cung, bộ phận bên dưới tử cung.
+            Cổ tử cung kết nối tử cung và âm đạo. Hình vẽ mô tả cổ tử cung có tế bào phát triển bất thường phát triển thành khối u. 
+            Ung thư cổ tử cung là loại ung thư phổ biến thứ tư ở phụ nữ so với các loại ung thư khác, ước tính có khoảng 604 000 ca mắc mới và 342 000 ca tử vong vào năm 2020.
+            Khoảng 90% các trường hợp mắc mới và tử vong trên toàn thế giới vào năm 2020 xảy ra ở các nước có thu nhập thấp và trung bình."""
+            },
+            'readmore': {
+                'en': 'Read more...',
+                'vn': 'Xem thêm...'
+            },
+            'method_head': {
+                'en': 'How does this model work?',
+                'vn': 'Kết quả được tính toán như thế nào?'
+            },
+            'method': {
+                'en': """
+            Early detection of cervical cancer is crucial to reduce this disease's deadliness. 
+            Several predictive models are built based on data collected from 858 women from [UCI Machine Learning Repository](https://archive-beta.ics.uci.edu/ml/datasets/cervical+cancer+risk+factors) with 32 features and 4 targets, 
+            which are also the 4 most common tests for cervical cancer: Hinselmann, Schiller, Cytology, and Biopsy. 
+    
+            This dataset suffers from imbalance with only less than 9% positive patients and approximately 20% missing values. 
+            Besides, 32 attributes appear redundant to feed a predictive model, which may lead to potential overfitting. Therefore, several machine learning approaches have been deployed to deal with the aforementioned problems, 
+            such as feature engineering, resampling, and feature selection. The developer found that Support Vector Machine Classification, with the support of Border-SMOTE and Meta-transformer for selecting features based on importance weights for the Hinselmann, 
+            shows the most outstanding performance, with 8 chosen features, generating an accuracy of 98.18%.""",
+                'vn': """
+            Phát hiện sớm bệnh ung thư cổ tử cung có thể giúp gia tăng cơ hội chữa lành. Một số phương pháp dự đoán đã được xây dựng dựa trên giữ liệu thu thập được từ 858 phụ nữ từ [UCI Machine Learning Repository](https://archive-beta.ics.uci.edu/ml/datasets/cervical+cancer+risk+factors)
+            với 32 đặc điểm khác nhau và 4 kết quả xét nghiệm cần dự đoán, cũng là 4 phương pháp xét nghiệm cung thư cổ tử cung phổ biến nhất: Hinselmann, Schiller, Cytology, và Biopsy.
 
-def show_explore_page():
+            Dữ liệu thu được có sự mất cân bằng với chỉ 9% số bệnh nhân dương tính và khoảng 20% dữ liệu thiếu thông tin.
+            Bên cạnh đó, chúng ta không cần dùng toàn bộ 32 đặc tính để xây dựng mô hình dự đoán vì có thể dẫn tới việc kết quả trở nên thiếu chính xác. Vì vậy, một vài cách tiếp cận sử dụng trí tuệ nhân tạo đã được sử dụng để giải quyết những vấn đề nếu trên,
+            bao gồm xử lí dữ liệu thô, giải quyết sự thiếu cân bằng dữ liệu, và loại bỏ đặc tính. Người phát triển mô hình nhận thấy phân loại sử dụng Support Vector Machine, với sự hỗ trợ của phương pháp Border-SMOTE và lựa chọn đặc tính dựa trên mức độ quan trọng cho phương pháp xét nghiệm Hinselmann
+            cho ra kết quả tốt nhất, chỉ với 8 đặc tính được lựa chọn với độ chính xác là 98.18%."""
+            },
+            'table1': {
+                'en': 'Table 1. Models with best performance for each target',
+                'vn': 'Bảng 1. Mô hình với kết quả dự đoán tốt nhất cho mỗi bài xét nghiệm'
+            },
+            'factor_head': {
+                'en': '## What Are the Risk Factors for Cervical Cancer?',
+                'vn': '## Đâu là những yếu tố gây nên ung thư cổ tử cung?'
+            },
+            'factor': {
+                'en': 
+                """         1. Age
+                            2. Number of sexual partners
+                            3. First sexual intercourse
+                            4. Number of pregnancies
+                            5. Use of hormonal contraceptives  
+                            6. Duration of hormonal contraceptives usage   
+                            7. Use of IUD    
+                            8. Presense of other types of cancer""",
+                'vn': 
+                """         1. Độ tuổi
+                            2. Số người quan hệ tình dục 
+                            3. Tuổi khi lần đầu quan hệ tình dục
+                            4. Số lần mang thai
+                            5. Sử dụng thuốc tránh thai nội tiết tố 
+                            6. Thời gian sử dụng thuốc tránh thai nội tiết tố
+                            7. Sử dụng vòng tránh thai   
+                            8. Các bệnh ung thư nền khác"""
+            }
+
+}   
+
+def show_explore_page(lan):
     st.markdown("## What is Cervical Cancer?")
     st.markdown("""
     ### Cervical cancer is the fourth most common cancer in women compared to other types of cancer. However, you can protect yourself by early detecting this disease.""")
@@ -28,7 +107,7 @@ def show_explore_page():
 
     
     st.markdown("##")
-    st.markdown("## How this model works?")
+    st.markdown("## How does this model work?")
  
     st.markdown("""
     Early detection of cervical cancer is crucial to reduce this disease's deadliness. 
@@ -43,10 +122,10 @@ def show_explore_page():
     st.markdown("""
 | Test       |                        Model                        | No of Features | Accuracy | Precision | Sensitivity | Specificity |   F-1  |
 |------------|:---------------------------------------------------:|:--------------:|:--------:|:---------:|:-----------:|:-----------:|:------:|
-| Hinselmann | Grid Search CV + Borderline-SMOTE + SelectFromModel |        8       |  98.18%  |   98.76%  |    97.55%   |    98.80%   | 98.15% |
-|  Schiller  |  Random Forest + Borderline-SMOTE + SelectFromModel |        7       |  96.17%  |   96.58%  |    95.27%   |    96.97%   | 95.92% |
-|  Citology  | Grid Search CV + Borderline-SMOTE + SelectFromModel |        6       |  97.54%  |   97.65%  |    97.65%   |    97.42%   | 96.74% |
-|   Biopsy   |  Random Forest + Borderline-SMOTE + SelectFromModel |        8       |  96.57%  |  100.00%  |    93.13%   |   100.00%   | 96.44% |
+| Hinselmann |      SVM      + Borderline-SMOTE + Meta-transformer |        8       |  98.18%  |   98.76%  |    97.55%   |    98.80%   | 98.15% |
+|  Schiller  | Random Forest + Borderline-SMOTE + Meta-transformer |        7       |  96.17%  |   96.58%  |    95.27%   |    96.97%   | 95.92% |
+|  Citology  |      SVM      + Borderline-SMOTE + Meta-transformer |        6       |  97.54%  |   97.65%  |    97.65%   |    97.42%   | 96.74% |
+|   Biopsy   | Random Forest + Borderline-SMOTE + Meta-transformer |        8       |  96.57%  |  100.00%  |    93.13%   |   100.00%   | 96.44% |
     
     """)
 
@@ -55,23 +134,16 @@ def show_explore_page():
 
     st.markdown("""There are several factor that may increase your chance of having cervical cancer. Each test mentioned above weights each factor differently. However, they all come to consensus with 8 most important risk factors, which are asked in the predict page:""")
     
-    st.markdown('        1. Age')
-    st.markdown('        2. Number of sexual partners')
-    st.markdown('        3. First sexual intercourse') 
-    st.markdown('        4. Number of pregnancies')    
-    st.markdown('        5. Use of hormonal contraceptives')    
-    st.markdown('        6. Duration of hormonal contraceptives usage')    
-    st.markdown('        7. Use of IUD')    
-    st.markdown('        8. Presense of other types of cancer')    
+    st.markdown("""         1. Age
+                            2. Number of sexual partners
+                            3. First sexual intercourse
+                            4. Number of pregnancies
+                            5. Use of hormonal contraceptives  
+                            6. Duration of hormonal contraceptives usage   
+                            7. Use of IUD    
+                            8. Presense of other types of cancer""")
 
     st.markdown('')
-    # st.image("Feature Importances - Hinselmann.png", caption='Feature Importances - Hinselmann Test')
-    # st.markdown('')
-    # st.image("Feature Importances - Schiller.png", caption='Feature Importances - Schiller Test')
-    # st.markdown('')
-    # st.image("Feature Importances - Citology.png", caption='Feature Importances - Citology Test')
-    # st.markdown('')
-    # st.image("Feature Importances - Biopsy.png", caption='Feature Importances - Biopsy Test')
 
     with st.container():
         image1, image2 = st.columns((1,1))
