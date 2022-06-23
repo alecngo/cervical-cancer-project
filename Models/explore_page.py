@@ -60,6 +60,13 @@ texts = {   'header1': {
                 'en': '## What Are the Risk Factors for Cervical Cancer?',
                 'vn': '## Đâu là những yếu tố gây nên ung thư cổ tử cung?'
             },
+            'factor_intro': {
+                'en': """There are several factor that may increase your chance of having cervical cancer. 
+            Each test mentioned above weights each factor differently. However, they all come to consensus with 8 most important risk factors, 
+            which are asked in the predict page:""",
+                'vn': """Có nhiều yếu tố làm tăng khả năng mắc ung thư cổ tử cung. Mỗi phương pháp xét nghiệm cho thấy độ quan trọng của từng yếu tố là khác nhau. Tuy nhiên,
+            tất cả các phương pháp xét nghiệm đều cho thấy có 8 yếu tố quyết định hàng đầu, cũng là 8 yếu tố được hỏi ở trang dự đoán:"""
+            },
             'factor': {
                 'en': 
                 """         1. Age
@@ -84,9 +91,8 @@ texts = {   'header1': {
 }   
 
 def show_explore_page(lan):
-    st.markdown("## What is Cervical Cancer?")
-    st.markdown("""
-    ### Cervical cancer is the fourth most common cancer in women compared to other types of cancer. However, you can protect yourself by early detecting this disease.""")
+    st.markdown(texts['header1'][lan])
+    st.markdown(texts['definition_head'][lan])
 
     st.write('')
 
@@ -98,29 +104,22 @@ def show_explore_page(lan):
             [Fig. 1.](https://www.quellerfisher.com/blog/wp-content/uploads/sites/464/2018/02/Cervical-cancer-simple-illustration.jpg) Cervical Cancer illustration""")
 
         with text_col:
-            st.subheader("Overview of Cervical Cancer")
-            st.write("""Cervical cancer is a type of cancer in which abnormal cell growth occurs in the cervix, the lower part of the uterus. 
-            The cervix connects the uterus to the vagina. The figure depicts a cervix with abnormal cell growth developing into a tumor
-            Cervical cancer is the fourth most common cancer in women compared to other types of cancer, with an estimated 604 000 new cases and 342 000 deaths in 2020. 
-            About 90% of the new cases and deaths worldwide in 2020 occurred in low- and middle-income countries.""")
-            st.markdown("[Read more...](https://www.cdc.gov/cancer/cervical/basic_info/)")
+            st.subheader(texts['sub2header1'][lan])
+            st.write(texts['definition'][lan])
+            st.markdown(f"[{texts['readmore'][lan]}](https://www.cdc.gov/cancer/cervical/basic_info/)")
 
     
     st.markdown("##")
-    st.markdown("## How does this model work?")
+    st.markdown(texts['method_head'][lan])
  
-    st.markdown("""
-    Early detection of cervical cancer is crucial to reduce this disease's deadliness. 
-    Several predictive models are built based on data collected from 858 women from [UCI Machine Learning Repository](https://archive-beta.ics.uci.edu/ml/datasets/cervical+cancer+risk+factors) with 32 features and 4 targets, which are also the 4 most common tests for cervical cancer: Hinselmann, Schiller, Cytology, and Biopsy. 
-    
-    This dataset suffers from imbalance with only less than 9% positive patients and approximately 20% missing values. Besides, 32 attributes appear redundant to feed a predictive model, which may lead to potential overfitting. Therefore, several machine learning approaches have been deployed to deal with the aforementioned problems, such as feature engineering, resampling, and feature selection. The developer found that GridSearchCV Classification, with the support of Border-SMOTE and Meta-transformer for selecting features based on importance weights for the Hinselmann, shows the most outstanding performance, with 8 chosen features, generating an accuracy of 98.18%.""")
+    st.markdown(texts['method'][lan])
 
-    st.markdown('')
+    st.markdown(texts['table1'][lan])
 
-    st.write('Table 1. Models with best performance for each target')
+    st.write()
     
     st.markdown("""
-| Test       |                        Model                        | No of Features | Accuracy | Precision | Sensitivity | Specificity |   F-1  |
+|    Test    |                        Model                        | No of Features | Accuracy | Precision | Sensitivity | Specificity |   F-1  |
 |------------|:---------------------------------------------------:|:--------------:|:--------:|:---------:|:-----------:|:-----------:|:------:|
 | Hinselmann |      SVM      + Borderline-SMOTE + Meta-transformer |        8       |  98.18%  |   98.76%  |    97.55%   |    98.80%   | 98.15% |
 |  Schiller  | Random Forest + Borderline-SMOTE + Meta-transformer |        7       |  96.17%  |   96.58%  |    95.27%   |    96.97%   | 95.92% |
@@ -130,18 +129,11 @@ def show_explore_page(lan):
     """)
 
     st.markdown('')
-    st.markdown("## What Are the Risk Factors for Cervical Cancer?")
+    st.markdown(texts['factor_head'][lan])
 
-    st.markdown("""There are several factor that may increase your chance of having cervical cancer. Each test mentioned above weights each factor differently. However, they all come to consensus with 8 most important risk factors, which are asked in the predict page:""")
+    st.markdown(texts['factor_intro'][lan])
     
-    st.markdown("""         1. Age
-                            2. Number of sexual partners
-                            3. First sexual intercourse
-                            4. Number of pregnancies
-                            5. Use of hormonal contraceptives  
-                            6. Duration of hormonal contraceptives usage   
-                            7. Use of IUD    
-                            8. Presense of other types of cancer""")
+    st.markdown(texts['factor'][lan])
 
     st.markdown('')
 
