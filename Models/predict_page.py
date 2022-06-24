@@ -69,7 +69,7 @@ texts = {   'header': {
             },
             'predict':  {       
                 'en': 'Predict',
-                'vn': 'Dự đoán'
+                'vn': 'Chẩn đoán'
             },
             'negative': {       
                 'en': 'Negative',
