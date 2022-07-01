@@ -4,6 +4,7 @@
 
 ## Code and Resources Used 
 **Python Version:** 3.10
+
 **Packages:** scikit-learn==0.24.1
 streamlit~=1.10.0
 joblib~=0.17.0
@@ -11,6 +12,7 @@ numpy~=1.22.1
 pandas==1.4.2
 matplotlib==3.5.1
 imblearn==0.0
+
 **Dataset:** https://archive-beta.ics.uci.edu/ml/datasets/cervical+cancer+risk+factors 
 
 ## Model performance
