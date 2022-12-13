@@ -9,8 +9,8 @@ from biopsy import biopsy_model
 
 
 texts = {   'header': {         
-                'en':'Cervical Cancer Detection Page',
-                'vn':'Chẩn Đoán Ung Thư Cổ Tử Cung'
+                'en':'CSC 410: Cervical Cancer Detection Page',
+                'vn':'CSC 410: Chẩn Đoán Ung Thư Cổ Tử Cung'
             },
             'subheader': {      
                 'en':'Information collected from respondents is kept ***strictly confidential***.',
