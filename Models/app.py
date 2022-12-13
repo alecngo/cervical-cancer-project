@@ -7,8 +7,8 @@ texts = {   'select': {
                 'vn': "Tìm hiểu hay chẩn đoán"
             },
             'concern': {
-                'en': 'For any concerns or inquiries, contact developer at ngoa@berea.edu',
-                'vn': 'Nếu có bất kỳ thắc mắc hay yêu cầu nào, vui lòng liên hệ developer tại ngoa@berea.edu'
+                'en': 'Anh Ngo and Fleur Gahimbare',
+                'vn': 'Anh Ngo & Fleur Gahimbare'
             },
             'predict': {
                 'en': 'Predict',
